@@ -1,7 +1,6 @@
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\bin\Debug\LojaDinossauro.exe.config
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\bin\Debug\LojaDinossauro.exe
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\bin\Debug\LojaDinossauro.pdb
-C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.csproj.AssemblyReference.cache
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.Form1.resources
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.Properties.Resources.resources
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.csproj.GenerateResource.cache
@@ -10,3 +9,5 @@ C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debu
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.pdb
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.Form2.resources
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.frmCriarProduto.resources
+C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.csproj.AssemblyReference.cache
+C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.frmInfoProduto.resources

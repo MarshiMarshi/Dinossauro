@@ -2,29 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 
 namespace LojaDinossauro
 {
     public class Produto
     {
-        public Produto(bool produtoOuBrinquedo)
-        {
-            if (produtoOuBrinquedo)
-            {
-                tipo = new TipoDinossauroEnum();
-            }
-            else
-            {
-                tipo = new TipoBrinquedoEnum();
-            }
-        }
-
         public long cod;
-        public string imgPath;
         public string nome;
         public double preco;
-        public object tipo;
+        public string descricao;
+        public List<Enum> tipo = new List<Enum>();
+        public Image img;
     }
 
     public enum TipoBrinquedoEnum
@@ -37,7 +27,11 @@ namespace LojaDinossauro
     public enum TipoDinossauroEnum
     {
         Herbivoro,
-        Carnivoro
+        Carnivoro,
+        Bipede,
+        Quadrupede,
+        Espinhos,
+        Aquatico,
+        Voador
     }
-
 }

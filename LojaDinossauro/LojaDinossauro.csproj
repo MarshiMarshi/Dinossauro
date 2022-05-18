@@ -64,6 +64,18 @@
     <Compile Include="frmCriarProduto.Designer.cs">
       <DependentUpon>frmCriarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInfoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfoProduto.Designer.cs">
+      <DependentUpon>frmInfoProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTermos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTermos.Designer.cs">
+      <DependentUpon>frmTermos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pedido.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
@@ -77,6 +89,9 @@
     <EmbeddedResource Include="frmCriarProduto.resx">
       <DependentUpon>frmCriarProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInfoProduto.resx">
+      <DependentUpon>frmInfoProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

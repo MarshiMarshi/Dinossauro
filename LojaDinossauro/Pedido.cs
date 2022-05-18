@@ -8,12 +8,18 @@ namespace LojaDinossauro
 {
     class Pedido
     {
+        public Pedido(Produto produto)
+        {
+            this.produtos.Add(produto);
+        }
+
         public long cod;
-        public List<Produto> produtos;
+        public double preco;
+        public List<Produto> produtos = new List<Produto>();
     }
 
     public static class Global
     {
-        public static List<Produto> produtos;
+        public static List<Produto> produtos = new List<Produto>();
     }
 }
