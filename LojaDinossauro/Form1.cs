@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace LojaDinossauro
 {
+    // TODO: Terminar o Codigo
+    // TODO: Organizar o codigo
     public partial class Form1 : Form
     {
         public Form1()
@@ -20,16 +22,7 @@ namespace LojaDinossauro
             lvwPedido.Columns[1].Width = -2;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form1_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
+        // TODO: Mudar entrada no form1
         private void Form1_Activated(object sender, EventArgs e)
         {
             if (Global.produtos.Count > 0)
@@ -39,33 +32,25 @@ namespace LojaDinossauro
                 foreach (Control ctrl in tpDinossauros.Controls)
                     if (ctrl.Name != "btnCriarDinossauro")
                         ctrl.Dispose();
-
                 tpDinossauros.Refresh();
 
                 foreach (Control ctrl in tpBrinquedos.Controls)
                     if (ctrl.Name != "btnCriarBrinquedo")
                         ctrl.Dispose();
-
                 tpBrinquedos.Refresh();
 
                 foreach (Produto prod in Global.produtos)
                 {
-                    foreach (Enum tipo in prod.tipo)
-                    {
-                        if (Enum.IsDefined(typeof(TipoDinossauroEnum), tipo))
-                            foreach (Control ctrl in tpDinossauros.Controls)
-                                if (ctrl.Name != "btnCriarDinossauro" && !ctrl.TabIndex.Equals(prod.cod))
-                                    addControl(prod, true);
-                        else
-                            addControl(prod, false);
-
-                    }
+                    if (prod.tipo.First<Enum>().GetType() == typeof(TipoDinossauroEnum))
+                        addControl(prod, true);
+                    else
+                        addControl(prod, false);
                 }
             }
         }
 
         private int height = 64;
-
+        // TODO: Melhorar metodo addControl
         private void addControl(Produto prod, bool tipoProduto)
         {
             Button btnComprar = new Button();
@@ -124,25 +109,25 @@ namespace LojaDinossauro
             }
             
             height += 44;
-            btnComprar.Click += (sender, e) => btnComprar_Click(sender, e, btnComprar.TabIndex);
-            btnInfo.Click += (sender, e) => btnInfo_Click(sender, e , btnInfo.TabIndex);
+            btnComprar.Click += new EventHandler(btnComprar_Click);
+            btnInfo.Click += new EventHandler(btnInfo_Click);
         }
 
-        private void btnComprar_Click(object sender, EventArgs e, long cod)
+        private void btnComprar_Click(object sender, EventArgs e)
         {
             double total = 0;
             foreach (Produto prod in Global.produtos)
             {
-                if (cod == prod.cod)
+                if ((sender as Button).TabIndex == prod.cod)
                     total += prod.preco;
-                    lvwPedido.Items.Add(new ListViewItem(new[] { prod.nome, prod.preco.ToString() }));
+                lvwPedido.Items.Add(new ListViewItem(new[] { prod.nome, prod.preco.ToString() }));
             }
-            lblPrecoTotal.Text += total;
+            lblPrecoTotal.Text = string.Format("Total: {0}", total);
         }
 
-        private void btnInfo_Click(object sender, EventArgs e, long cod)
+        private void btnInfo_Click(object sender, EventArgs e)
         {
-            frmInfoProduto frmInfo = new frmInfoProduto(cod);
+            frmInfoProduto frmInfo = new frmInfoProduto((sender as Button).TabIndex);
             frmInfo.ShowDialog();
         }
 
@@ -196,43 +181,41 @@ namespace LojaDinossauro
         }
         #endregion
 
+
+        // TODO: Refazer filtros
         private void filtros(bool tipoProduto)
         {
             height = 64;
 
             if (tipoProduto)
             {
+                for (int i = tpDinossauros.Controls.Count - 1; i >= 0; i--)
+                    if (tpDinossauros.Controls[i].Text != "Criar")
+                        tpDinossauros.Controls[i].Dispose();
+                /*foreach (Control ctrl in tpDinossauros.Controls)
+                    if (ctrl.Name != "btnCriarDinossauro")
+                        ctrl.Dispose();*/
+
                 foreach (CheckBox chk in grpFiltrosDinossauros.Controls)
                 {
                     if (chk.Checked)
                     {
-                        foreach (Control ctrl in tpDinossauros.Controls)
-                            if (ctrl.Name != "btnCriarDinossauro")
-                                ctrl.Dispose();
-
                         foreach (Produto prod in Global.produtos)
-                            foreach (Enum tipo in prod.tipo)
-                                if (chk.Text == tipo.ToString())
-                                    addControl(prod, true);
+                        {
+                            foreach (var tipo in prod.tipo)
+                                if (chk.Text == tipo.ToString() && tpDinossauros.Controls[int.Parse(prod.cod.ToString())].TabIndex != prod.cod)
+                                    addControl(prod, tipoProduto);
+                        }
                     }
                 }
             }
             else
             {
-                foreach (CheckBox chk in grpFiltrosBrinquedos.Controls)
-                {
-                    if (chk.Checked)
-                    {
-                        foreach (Control ctrl in tpDinossauros.Controls)
-                            if (ctrl.Name != "btnCriarDinossauro")
-                                ctrl.Dispose();
+                foreach (Control ctrl in tpDinossauros.Controls)
+                    if (ctrl.Name != "btnCriarDinossauro")
+                        ctrl.Dispose();
 
-                        foreach (Produto prod in Global.produtos)
-                            foreach (Enum tipo in prod.tipo)
-                                if (chk.Text == tipo.ToString())
-                                    addControl(prod, false);
-                    }
-                }
+                
             }
         }
     }

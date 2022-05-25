@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace LojaDinossauro
 {
@@ -27,9 +28,7 @@ namespace LojaDinossauro
             if (tipoProduto)
             {
                 foreach (var tipo in Enum.GetValues(typeof(TipoDinossauroEnum)))
-                {
                     cmbTipoProduto.Items.Add(tipo);
-                }
             }
             else
             {
@@ -39,9 +38,7 @@ namespace LojaDinossauro
                 btnCriarBrinquedo.Show();
 
                 foreach (var tipo in Enum.GetValues(typeof(TipoBrinquedoEnum)))
-                {
                     cmbTipoProduto.Items.Add(tipo);
-                }
             }
         }
 
@@ -63,28 +60,30 @@ namespace LojaDinossauro
 
         private void btnProcurarImagem_Click(object sender, EventArgs e)
         {
-            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            bool locked = false;
+            string pathResources = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources"));
+            if (!Directory.Exists(pathResources))
+                Directory.CreateDirectory(pathResources);
 
-            if (Directory.Exists($@"{path}\Resources"))
+            OpenFileDialog openImage = new OpenFileDialog();
+            openImage.InitialDirectory = pathResources;
+            if (openImage.ShowDialog() == DialogResult.OK)
             {
-                OpenFileDialog openImage = new OpenFileDialog();
-                if (openImage.ShowDialog() == DialogResult.OK)
+                foreach (var imageExtension in typeof(ImageFormat).GetProperties())
+                    if (string.Equals(openImage.SafeFileName.Substring(openImage.SafeFileName.LastIndexOf(".")).Remove(0, 1), imageExtension.Name, StringComparison.OrdinalIgnoreCase))
+                        locked = true;
+                        
+                if (locked || string.Equals(openImage.SafeFileName.Substring(openImage.SafeFileName.LastIndexOf(".")).Remove(0, 1), "jpg", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (File.Exists($@"{path}\Resources\{openImage.SafeFileName}"))
-                        picProduto.Image = new Bitmap($@"{path}\Resources\{openImage.SafeFileName}");
-                    else
-                        File.Copy(openImage.FileName, $@"{path}\Resources\{openImage.SafeFileName}");
-                        picProduto.Image = new Bitmap(openImage.FileName);
-                }
-            }
-            else
-            {
-                Directory.CreateDirectory($@"{path}\Resources");
+                    if (!File.Exists(Path.Combine(pathResources, openImage.SafeFileName)))
+                        File.Copy(openImage.FileName, Path.Combine(pathResources, openImage.SafeFileName));
 
-                OpenFileDialog openImage = new OpenFileDialog();
-                if (openImage.ShowDialog() == DialogResult.OK)
-                    File.Copy(openImage.FileName, $@"{path}\Resources\{openImage.SafeFileName}");
                     picProduto.Image = new Bitmap(openImage.FileName);
+                }
+                else
+                {
+                    MessageBox.Show("Somente arquivos de imagem devem ser escolhido!", "Arquivo Inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 
@@ -115,14 +114,9 @@ namespace LojaDinossauro
 
                 produto.cod = Global.produtos.Count + 1;
                 produto.nome = txtNome.Text;
-                produto.preco = double.Parse(txtPreco.Text);
+                produto.preco = double.Parse(txtPreco.Text.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture);
                 produto.descricao = txtDescricao.Text;
-
-                foreach (Enum tipo in lstTipoProduto.Items)
-                {
-                    produto.tipo.Add(tipo);
-                }
-                
+                produto.tipo.AddRange(lstTipoProduto.Items.Cast<Enum>());
                 produto.img = picProduto.Image;
 
                 Global.produtos.Add(produto);
@@ -164,14 +158,9 @@ namespace LojaDinossauro
 
                 produto.cod = Global.produtos.Count + 1;
                 produto.nome = txtNome.Text;
-                produto.preco = double.Parse(txtPreco.Text.Replace(',', '.'));
+                produto.preco = double.Parse(txtPreco.Text.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture);
                 produto.descricao = txtDescricao.Text;
-
-                foreach (Enum tipo in lstTipoProduto.Items)
-                {
-                    produto.tipo.Add(tipo);
-                }
-                
+                produto.tipo.AddRange(lstTipoProduto.Items.Cast<Enum>());
                 produto.img = picProduto.Image;
 
                 Global.produtos.Add(produto);
@@ -186,9 +175,37 @@ namespace LojaDinossauro
             }
         }
 
+        private void btnAddTipo_Click(object sender, EventArgs e)
+        {
+            if (cmbTipoProduto.SelectedIndex >= 0)
+            {
+                if (!lstTipoProduto.Items.Contains(cmbTipoProduto.SelectedItem))
+                    lstTipoProduto.Items.Add(cmbTipoProduto.SelectedItem);
+                else
+                    MessageBox.Show("Item já adicionado na lista!", "Erro: Adicionar mais de um item", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Selecione um Item da TextBox para ser adicionado!", "Nenhum item selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnRemoverTipo_Click(object sender, EventArgs e)
+        {
+            if (lstTipoProduto.SelectedItem != null)
+                lstTipoProduto.Items.Remove(lstTipoProduto.SelectedItem);
+            else
+                MessageBox.Show("Selecione um Item da Lista para ser removido!", "Nenhum item selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnRemoverTodosTipos_Click(object sender, EventArgs e)
+        {
+            lstTipoProduto.Items.Clear();
+        }
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Dispose();            
+            this.Dispose();
 
             FormCollection frmList = Application.OpenForms;
 
@@ -199,20 +216,14 @@ namespace LojaDinossauro
             }
         }
 
-        private void btnAddTipo_Click(object sender, EventArgs e)
+        private void btnLimpar_Click(object sender, EventArgs e)
         {
-            if (cmbTipoProduto.SelectedIndex >= 0)
-                lstTipoProduto.Items.Add(cmbTipoProduto.SelectedItem);
-            else
-                MessageBox.Show("Selecione um Item da TextBox para ser removido!");
-        }
+            foreach (Control ctrl in pnlText.Controls)
+                if (ctrl.GetType() == typeof(TextBox))
+                    ctrl.Text = "";
 
-        private void btnDeletarTipo_Click(object sender, EventArgs e)
-        {
-            if (lstTipoProduto.SelectedItem != null)
-                lstTipoProduto.Items.Remove(lstTipoProduto.SelectedItem);
-            else
-                MessageBox.Show("Selecione um Item da Lista para ser removido!");
+            lstTipoProduto.Items.Clear();
+            picProduto.Image = null;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace LojaDinossauro
 {
+    // TODO: Melhorar Produto
     public class Produto
     {
         public long cod;
@@ -14,6 +15,23 @@ namespace LojaDinossauro
         public double preco;
         public string descricao;
         public List<Enum> tipo = new List<Enum>();
+
+        /*public Enum tipo
+        {
+            get
+            {
+                foreach (var tipo in tipoPrivate)
+                    return this.tipo = tipo;
+
+                return null;
+            }
+
+            set
+            {
+                tipoPrivate.Add(value);
+            }
+        }*/
+
         public Image img;
     }
 
@@ -33,5 +51,21 @@ namespace LojaDinossauro
         Espinhos,
         Aquatico,
         Voador
+    }
+
+    [Flags]
+    public enum TipoProdutoEnum
+    {
+        Herbivoro = 1,
+        Carnivoro = 2,
+        Bipede = 4,
+        Quadrupede = 8,
+        Espinhos = 16,
+        Aquatico = 32,
+        Voador = 64,
+
+        Roupa = 128,
+        Matar = 256,
+        Biscoito = 512
     }
 }

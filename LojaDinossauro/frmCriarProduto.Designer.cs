@@ -34,6 +34,18 @@ namespace LojaDinossauro
             this.lblSenha = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.pnlCriarProduto = new System.Windows.Forms.Panel();
+            this.btnRemoverTodosTipos = new System.Windows.Forms.Button();
+            this.btnAddTipo = new System.Windows.Forms.Button();
+            this.pnlText = new System.Windows.Forms.Panel();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.lblPreco = new System.Windows.Forms.Label();
+            this.btnRemoverTipo = new System.Windows.Forms.Button();
+            this.lstTipoProduto = new System.Windows.Forms.ListBox();
+            this.picProduto = new System.Windows.Forms.PictureBox();
             this.btnProcurarImagem = new System.Windows.Forms.Button();
             this.lblTipoProduto = new System.Windows.Forms.Label();
             this.cmbTipoProduto = new System.Windows.Forms.ComboBox();
@@ -41,21 +53,10 @@ namespace LojaDinossauro
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnCriarDinossauro = new System.Windows.Forms.Button();
-            this.lblPreco = new System.Windows.Forms.Label();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.txtPreco = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.picProduto = new System.Windows.Forms.PictureBox();
-            this.lstTipoProduto = new System.Windows.Forms.ListBox();
-            this.btnDeletarTipo = new System.Windows.Forms.Button();
-            this.pnlText = new System.Windows.Forms.Panel();
-            this.btnAddTipo = new System.Windows.Forms.Button();
-            this.lblDescricao = new System.Windows.Forms.Label();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.pnlSenha.SuspendLayout();
             this.pnlCriarProduto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProduto)).BeginInit();
             this.pnlText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSenha
@@ -91,14 +92,16 @@ namespace LojaDinossauro
             // 
             this.txtSenha.Location = new System.Drawing.Point(78, 22);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '●';
             this.txtSenha.Size = new System.Drawing.Size(100, 20);
             this.txtSenha.TabIndex = 0;
             // 
             // pnlCriarProduto
             // 
+            this.pnlCriarProduto.Controls.Add(this.btnRemoverTodosTipos);
             this.pnlCriarProduto.Controls.Add(this.btnAddTipo);
             this.pnlCriarProduto.Controls.Add(this.pnlText);
-            this.pnlCriarProduto.Controls.Add(this.btnDeletarTipo);
+            this.pnlCriarProduto.Controls.Add(this.btnRemoverTipo);
             this.pnlCriarProduto.Controls.Add(this.lstTipoProduto);
             this.pnlCriarProduto.Controls.Add(this.picProduto);
             this.pnlCriarProduto.Controls.Add(this.btnProcurarImagem);
@@ -112,6 +115,117 @@ namespace LojaDinossauro
             this.pnlCriarProduto.Name = "pnlCriarProduto";
             this.pnlCriarProduto.Size = new System.Drawing.Size(485, 368);
             this.pnlCriarProduto.TabIndex = 1;
+            // 
+            // btnRemoverTodosTipos
+            // 
+            this.btnRemoverTodosTipos.Location = new System.Drawing.Point(378, 118);
+            this.btnRemoverTodosTipos.Name = "btnRemoverTodosTipos";
+            this.btnRemoverTodosTipos.Size = new System.Drawing.Size(87, 37);
+            this.btnRemoverTodosTipos.TabIndex = 22;
+            this.btnRemoverTodosTipos.Text = "Remover todos Tipos";
+            this.btnRemoverTodosTipos.UseVisualStyleBackColor = true;
+            this.btnRemoverTodosTipos.Click += new System.EventHandler(this.btnRemoverTodosTipos_Click);
+            // 
+            // btnAddTipo
+            // 
+            this.btnAddTipo.Location = new System.Drawing.Point(378, 60);
+            this.btnAddTipo.Name = "btnAddTipo";
+            this.btnAddTipo.Size = new System.Drawing.Size(87, 23);
+            this.btnAddTipo.TabIndex = 21;
+            this.btnAddTipo.Text = "Adicionar Tipo";
+            this.btnAddTipo.UseVisualStyleBackColor = true;
+            this.btnAddTipo.Click += new System.EventHandler(this.btnAddTipo_Click);
+            // 
+            // pnlText
+            // 
+            this.pnlText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlText.Controls.Add(this.txtDescricao);
+            this.pnlText.Controls.Add(this.lblDescricao);
+            this.pnlText.Controls.Add(this.txtNome);
+            this.pnlText.Controls.Add(this.txtPreco);
+            this.pnlText.Controls.Add(this.lblNome);
+            this.pnlText.Controls.Add(this.lblPreco);
+            this.pnlText.Location = new System.Drawing.Point(25, 43);
+            this.pnlText.Name = "pnlText";
+            this.pnlText.Size = new System.Drawing.Size(200, 238);
+            this.pnlText.TabIndex = 20;
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(32, 108);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(144, 115);
+            this.txtDescricao.TabIndex = 7;
+            // 
+            // lblDescricao
+            // 
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Location = new System.Drawing.Point(29, 89);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(58, 13);
+            this.lblDescricao.TabIndex = 6;
+            this.lblDescricao.Text = "Descrição:";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(76, 16);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(100, 20);
+            this.txtNome.TabIndex = 2;
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(76, 55);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(100, 20);
+            this.txtPreco.TabIndex = 3;
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(29, 19);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.TabIndex = 4;
+            this.lblNome.Text = "Nome:";
+            // 
+            // lblPreco
+            // 
+            this.lblPreco.AutoSize = true;
+            this.lblPreco.Location = new System.Drawing.Point(29, 58);
+            this.lblPreco.Name = "lblPreco";
+            this.lblPreco.Size = new System.Drawing.Size(38, 13);
+            this.lblPreco.TabIndex = 5;
+            this.lblPreco.Text = "Preço:";
+            // 
+            // btnRemoverTipo
+            // 
+            this.btnRemoverTipo.Location = new System.Drawing.Point(378, 89);
+            this.btnRemoverTipo.Name = "btnRemoverTipo";
+            this.btnRemoverTipo.Size = new System.Drawing.Size(87, 23);
+            this.btnRemoverTipo.TabIndex = 19;
+            this.btnRemoverTipo.Text = "Remover Tipo";
+            this.btnRemoverTipo.UseVisualStyleBackColor = true;
+            this.btnRemoverTipo.Click += new System.EventHandler(this.btnRemoverTipo_Click);
+            // 
+            // lstTipoProduto
+            // 
+            this.lstTipoProduto.FormattingEnabled = true;
+            this.lstTipoProduto.Location = new System.Drawing.Point(252, 60);
+            this.lstTipoProduto.Name = "lstTipoProduto";
+            this.lstTipoProduto.Size = new System.Drawing.Size(120, 95);
+            this.lstTipoProduto.TabIndex = 18;
+            // 
+            // picProduto
+            // 
+            this.picProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picProduto.Location = new System.Drawing.Point(252, 161);
+            this.picProduto.Name = "picProduto";
+            this.picProduto.Size = new System.Drawing.Size(120, 120);
+            this.picProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picProduto.TabIndex = 17;
+            this.picProduto.TabStop = false;
             // 
             // btnProcurarImagem
             // 
@@ -170,6 +284,7 @@ namespace LojaDinossauro
             this.btnLimpar.TabIndex = 7;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnCriarDinossauro
             // 
@@ -181,109 +296,9 @@ namespace LojaDinossauro
             this.btnCriarDinossauro.UseVisualStyleBackColor = true;
             this.btnCriarDinossauro.Click += new System.EventHandler(this.btnCriarDinossauro_Click);
             // 
-            // lblPreco
-            // 
-            this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(29, 58);
-            this.lblPreco.Name = "lblPreco";
-            this.lblPreco.Size = new System.Drawing.Size(38, 13);
-            this.lblPreco.TabIndex = 5;
-            this.lblPreco.Text = "Preço:";
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(29, 19);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
-            this.lblNome.TabIndex = 4;
-            this.lblNome.Text = "Nome:";
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.Location = new System.Drawing.Point(76, 55);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(100, 20);
-            this.txtPreco.TabIndex = 3;
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(76, 16);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 2;
-            // 
-            // picProduto
-            // 
-            this.picProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picProduto.Location = new System.Drawing.Point(252, 161);
-            this.picProduto.Name = "picProduto";
-            this.picProduto.Size = new System.Drawing.Size(120, 120);
-            this.picProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picProduto.TabIndex = 17;
-            this.picProduto.TabStop = false;
-            // 
-            // lstTipoProduto
-            // 
-            this.lstTipoProduto.FormattingEnabled = true;
-            this.lstTipoProduto.Location = new System.Drawing.Point(252, 60);
-            this.lstTipoProduto.Name = "lstTipoProduto";
-            this.lstTipoProduto.Size = new System.Drawing.Size(120, 95);
-            this.lstTipoProduto.TabIndex = 18;
-            // 
-            // btnDeletarTipo
-            // 
-            this.btnDeletarTipo.Location = new System.Drawing.Point(378, 101);
-            this.btnDeletarTipo.Name = "btnDeletarTipo";
-            this.btnDeletarTipo.Size = new System.Drawing.Size(87, 23);
-            this.btnDeletarTipo.TabIndex = 19;
-            this.btnDeletarTipo.Text = "Deletar Tipo";
-            this.btnDeletarTipo.UseVisualStyleBackColor = true;
-            this.btnDeletarTipo.Click += new System.EventHandler(this.btnDeletarTipo_Click);
-            // 
-            // pnlText
-            // 
-            this.pnlText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlText.Controls.Add(this.txtDescricao);
-            this.pnlText.Controls.Add(this.lblDescricao);
-            this.pnlText.Controls.Add(this.txtNome);
-            this.pnlText.Controls.Add(this.txtPreco);
-            this.pnlText.Controls.Add(this.lblNome);
-            this.pnlText.Controls.Add(this.lblPreco);
-            this.pnlText.Location = new System.Drawing.Point(25, 43);
-            this.pnlText.Name = "pnlText";
-            this.pnlText.Size = new System.Drawing.Size(200, 238);
-            this.pnlText.TabIndex = 20;
-            // 
-            // btnAddTipo
-            // 
-            this.btnAddTipo.Location = new System.Drawing.Point(378, 72);
-            this.btnAddTipo.Name = "btnAddTipo";
-            this.btnAddTipo.Size = new System.Drawing.Size(87, 23);
-            this.btnAddTipo.TabIndex = 21;
-            this.btnAddTipo.Text = "Adicionar Tipo";
-            this.btnAddTipo.UseVisualStyleBackColor = true;
-            this.btnAddTipo.Click += new System.EventHandler(this.btnAddTipo_Click);
-            // 
-            // lblDescricao
-            // 
-            this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(29, 89);
-            this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(58, 13);
-            this.lblDescricao.TabIndex = 6;
-            this.lblDescricao.Text = "Descrição:";
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(32, 108);
-            this.txtDescricao.Multiline = true;
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(144, 115);
-            this.txtDescricao.TabIndex = 7;
-            // 
             // frmCriarProduto
             // 
+            this.AcceptButton = this.btnConfirmar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 591);
@@ -296,9 +311,9 @@ namespace LojaDinossauro
             this.pnlSenha.PerformLayout();
             this.pnlCriarProduto.ResumeLayout(false);
             this.pnlCriarProduto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProduto)).EndInit();
             this.pnlText.ResumeLayout(false);
             this.pnlText.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProduto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,9 +339,10 @@ namespace LojaDinossauro
         private System.Windows.Forms.PictureBox picProduto;
         private System.Windows.Forms.ListBox lstTipoProduto;
         private System.Windows.Forms.Panel pnlText;
-        private System.Windows.Forms.Button btnDeletarTipo;
+        private System.Windows.Forms.Button btnRemoverTipo;
         private System.Windows.Forms.Button btnAddTipo;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label lblDescricao;
+        private System.Windows.Forms.Button btnRemoverTodosTipos;
     }
 }

@@ -43,21 +43,21 @@ namespace LojaDinossauro
             this.tpBrinquedos = new System.Windows.Forms.TabPage();
             this.btnCriarBrinquedo = new System.Windows.Forms.Button();
             this.tpCarrinho = new System.Windows.Forms.TabPage();
+            this.lblPrecoTotal = new System.Windows.Forms.Label();
+            this.rdoIrmao = new System.Windows.Forms.RadioButton();
+            this.rdoRins = new System.Windows.Forms.RadioButton();
+            this.rdoDebito = new System.Windows.Forms.RadioButton();
+            this.rdoCredito = new System.Windows.Forms.RadioButton();
+            this.lblFormaPagamento = new System.Windows.Forms.Label();
+            this.btnComprarCarrinho = new System.Windows.Forms.Button();
             this.lvwPedido = new System.Windows.Forms.ListView();
+            this.chNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPreco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpFiltrosDinossauros = new System.Windows.Forms.GroupBox();
             this.chkVoador = new System.Windows.Forms.CheckBox();
             this.chkAquatico = new System.Windows.Forms.CheckBox();
             this.chkEspinhos = new System.Windows.Forms.CheckBox();
             this.grpFiltrosBrinquedos = new System.Windows.Forms.GroupBox();
-            this.chNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chPreco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnComprarCarrinho = new System.Windows.Forms.Button();
-            this.lblFormaPagamento = new System.Windows.Forms.Label();
-            this.rdoCredito = new System.Windows.Forms.RadioButton();
-            this.rdoDebito = new System.Windows.Forms.RadioButton();
-            this.rdoRins = new System.Windows.Forms.RadioButton();
-            this.rdoIrmao = new System.Windows.Forms.RadioButton();
-            this.lblPrecoTotal = new System.Windows.Forms.Label();
             this.tabLoja.SuspendLayout();
             this.tpDinossauros.SuspendLayout();
             this.tpBrinquedos.SuspendLayout();
@@ -225,6 +225,78 @@ namespace LojaDinossauro
             this.tpCarrinho.Text = "Carrinho";
             this.tpCarrinho.UseVisualStyleBackColor = true;
             // 
+            // lblPrecoTotal
+            // 
+            this.lblPrecoTotal.AutoSize = true;
+            this.lblPrecoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecoTotal.Location = new System.Drawing.Point(15, 30);
+            this.lblPrecoTotal.Name = "lblPrecoTotal";
+            this.lblPrecoTotal.Size = new System.Drawing.Size(61, 24);
+            this.lblPrecoTotal.TabIndex = 7;
+            this.lblPrecoTotal.Text = "Total: ";
+            // 
+            // rdoIrmao
+            // 
+            this.rdoIrmao.AutoSize = true;
+            this.rdoIrmao.Location = new System.Drawing.Point(109, 132);
+            this.rdoIrmao.Name = "rdoIrmao";
+            this.rdoIrmao.Size = new System.Drawing.Size(51, 17);
+            this.rdoIrmao.TabIndex = 6;
+            this.rdoIrmao.TabStop = true;
+            this.rdoIrmao.Text = "Irmão";
+            this.rdoIrmao.UseVisualStyleBackColor = true;
+            // 
+            // rdoRins
+            // 
+            this.rdoRins.AutoSize = true;
+            this.rdoRins.Location = new System.Drawing.Point(18, 132);
+            this.rdoRins.Name = "rdoRins";
+            this.rdoRins.Size = new System.Drawing.Size(62, 17);
+            this.rdoRins.TabIndex = 5;
+            this.rdoRins.TabStop = true;
+            this.rdoRins.Text = "Um Rim";
+            this.rdoRins.UseVisualStyleBackColor = true;
+            // 
+            // rdoDebito
+            // 
+            this.rdoDebito.AutoSize = true;
+            this.rdoDebito.Location = new System.Drawing.Point(109, 108);
+            this.rdoDebito.Name = "rdoDebito";
+            this.rdoDebito.Size = new System.Drawing.Size(56, 17);
+            this.rdoDebito.TabIndex = 4;
+            this.rdoDebito.TabStop = true;
+            this.rdoDebito.Text = "Débito";
+            this.rdoDebito.UseVisualStyleBackColor = true;
+            // 
+            // rdoCredito
+            // 
+            this.rdoCredito.AutoSize = true;
+            this.rdoCredito.Location = new System.Drawing.Point(18, 109);
+            this.rdoCredito.Name = "rdoCredito";
+            this.rdoCredito.Size = new System.Drawing.Size(58, 17);
+            this.rdoCredito.TabIndex = 3;
+            this.rdoCredito.TabStop = true;
+            this.rdoCredito.Text = "Crédito";
+            this.rdoCredito.UseVisualStyleBackColor = true;
+            // 
+            // lblFormaPagamento
+            // 
+            this.lblFormaPagamento.AutoSize = true;
+            this.lblFormaPagamento.Location = new System.Drawing.Point(25, 83);
+            this.lblFormaPagamento.Name = "lblFormaPagamento";
+            this.lblFormaPagamento.Size = new System.Drawing.Size(160, 13);
+            this.lblFormaPagamento.TabIndex = 2;
+            this.lblFormaPagamento.Text = "Ecolha sua forma de pagamento";
+            // 
+            // btnComprarCarrinho
+            // 
+            this.btnComprarCarrinho.Location = new System.Drawing.Point(28, 187);
+            this.btnComprarCarrinho.Name = "btnComprarCarrinho";
+            this.btnComprarCarrinho.Size = new System.Drawing.Size(161, 23);
+            this.btnComprarCarrinho.TabIndex = 1;
+            this.btnComprarCarrinho.Text = "Comprar";
+            this.btnComprarCarrinho.UseVisualStyleBackColor = true;
+            // 
             // lvwPedido
             // 
             this.lvwPedido.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -237,6 +309,14 @@ namespace LojaDinossauro
             this.lvwPedido.TabIndex = 0;
             this.lvwPedido.UseCompatibleStateImageBehavior = false;
             this.lvwPedido.View = System.Windows.Forms.View.Details;
+            // 
+            // chNome
+            // 
+            this.chNome.Text = "Nome";
+            // 
+            // chPreco
+            // 
+            this.chPreco.Text = "Preço";
             // 
             // grpFiltrosDinossauros
             // 
@@ -297,86 +377,6 @@ namespace LojaDinossauro
             this.grpFiltrosBrinquedos.Text = "Brinquedos";
             this.grpFiltrosBrinquedos.Visible = false;
             // 
-            // chNome
-            // 
-            this.chNome.Text = "Nome";
-            // 
-            // chPreco
-            // 
-            this.chPreco.Text = "Preço";
-            // 
-            // btnComprarCarrinho
-            // 
-            this.btnComprarCarrinho.Location = new System.Drawing.Point(28, 187);
-            this.btnComprarCarrinho.Name = "btnComprarCarrinho";
-            this.btnComprarCarrinho.Size = new System.Drawing.Size(161, 23);
-            this.btnComprarCarrinho.TabIndex = 1;
-            this.btnComprarCarrinho.Text = "Comprar";
-            this.btnComprarCarrinho.UseVisualStyleBackColor = true;
-            // 
-            // lblFormaPagamento
-            // 
-            this.lblFormaPagamento.AutoSize = true;
-            this.lblFormaPagamento.Location = new System.Drawing.Point(25, 83);
-            this.lblFormaPagamento.Name = "lblFormaPagamento";
-            this.lblFormaPagamento.Size = new System.Drawing.Size(160, 13);
-            this.lblFormaPagamento.TabIndex = 2;
-            this.lblFormaPagamento.Text = "Ecolha sua forma de pagamento";
-            // 
-            // rdoCredito
-            // 
-            this.rdoCredito.AutoSize = true;
-            this.rdoCredito.Location = new System.Drawing.Point(18, 109);
-            this.rdoCredito.Name = "rdoCredito";
-            this.rdoCredito.Size = new System.Drawing.Size(58, 17);
-            this.rdoCredito.TabIndex = 3;
-            this.rdoCredito.TabStop = true;
-            this.rdoCredito.Text = "Crédito";
-            this.rdoCredito.UseVisualStyleBackColor = true;
-            // 
-            // rdoDebito
-            // 
-            this.rdoDebito.AutoSize = true;
-            this.rdoDebito.Location = new System.Drawing.Point(109, 108);
-            this.rdoDebito.Name = "rdoDebito";
-            this.rdoDebito.Size = new System.Drawing.Size(56, 17);
-            this.rdoDebito.TabIndex = 4;
-            this.rdoDebito.TabStop = true;
-            this.rdoDebito.Text = "Débito";
-            this.rdoDebito.UseVisualStyleBackColor = true;
-            // 
-            // rdoRins
-            // 
-            this.rdoRins.AutoSize = true;
-            this.rdoRins.Location = new System.Drawing.Point(18, 132);
-            this.rdoRins.Name = "rdoRins";
-            this.rdoRins.Size = new System.Drawing.Size(62, 17);
-            this.rdoRins.TabIndex = 5;
-            this.rdoRins.TabStop = true;
-            this.rdoRins.Text = "Um Rim";
-            this.rdoRins.UseVisualStyleBackColor = true;
-            // 
-            // rdoIrmao
-            // 
-            this.rdoIrmao.AutoSize = true;
-            this.rdoIrmao.Location = new System.Drawing.Point(109, 132);
-            this.rdoIrmao.Name = "rdoIrmao";
-            this.rdoIrmao.Size = new System.Drawing.Size(51, 17);
-            this.rdoIrmao.TabIndex = 6;
-            this.rdoIrmao.TabStop = true;
-            this.rdoIrmao.Text = "Irmão";
-            this.rdoIrmao.UseVisualStyleBackColor = true;
-            // 
-            // lblPrecoTotal
-            // 
-            this.lblPrecoTotal.AutoSize = true;
-            this.lblPrecoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecoTotal.Location = new System.Drawing.Point(15, 30);
-            this.lblPrecoTotal.Name = "lblPrecoTotal";
-            this.lblPrecoTotal.Size = new System.Drawing.Size(61, 24);
-            this.lblPrecoTotal.TabIndex = 7;
-            this.lblPrecoTotal.Text = "Total: ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,8 +389,6 @@ namespace LojaDinossauro
             this.Name = "Form1";
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.Form1_Activated);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Enter += new System.EventHandler(this.Form1_Enter);
             this.tabLoja.ResumeLayout(false);
             this.tpDinossauros.ResumeLayout(false);
             this.tpDinossauros.PerformLayout();
