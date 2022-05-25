@@ -143,6 +143,16 @@ namespace LojaDinossauro
             frm.ShowDialog();
         }
 
+        private void btnTermos_Click(object sender, EventArgs e)
+        {
+            frmTermos termos = new frmTermos();
+            
+            if (termos.ShowDialog == DialogResult.Ok)
+                MessageBox.Show("caso o acordo seja feito");
+            else
+                MessageBox.Show("caso o acordo não seja feito");
+        } 
+
         #region Eventos CheckedChanged
 
         private void chkCarnivoro_CheckedChanged(object sender, EventArgs e)
@@ -159,6 +169,7 @@ namespace LojaDinossauro
         {
             filtros(true);
         }
+
 
         private void chkQuadrupede_CheckedChanged(object sender, EventArgs e)
         {
