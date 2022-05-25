@@ -31,6 +31,8 @@ namespace LojaDinossauro
             }
             else
             {
+                lblDescrisao.Enabled = false;
+                txtDescrisao.Enabled = false;
                 lblTipoProduto.Text = lblTipoProduto.Text.Replace("Dinossauro", "Brinquedo");
                 btnCriarBrinquedo.Location = btnCriarDinossauro.Location;
                 btnCriarDinossauro.Hide();
@@ -137,7 +139,7 @@ namespace LojaDinossauro
                 foreach (Control ctrl in pnlText.Controls)
                 {
                     if (ctrl.GetType() == typeof(TextBox))
-                        if (string.IsNullOrWhiteSpace(ctrl.Text))
+                        if (string.IsNullOrWhiteSpace(ctrl.Text) && ctrl.Enabled != false)
                             throw new ArgumentNullException();
 
                 }
@@ -158,7 +160,6 @@ namespace LojaDinossauro
                 produto.cod = Global.produtos.Count + 1;
                 produto.nome = txtNome.Text;
                 produto.preco = double.Parse(txtPreco.Text.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture);
-                produto.descricao = txtDescricao.Text;
                 produto.tipo.AddRange(lstTipoProduto.Items.Cast<Enum>());
                 produto.img = picProduto.Image;
 
