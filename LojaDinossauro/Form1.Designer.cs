@@ -296,6 +296,7 @@ namespace LojaDinossauro
             this.btnComprarCarrinho.TabIndex = 1;
             this.btnComprarCarrinho.Text = "Comprar";
             this.btnComprarCarrinho.UseVisualStyleBackColor = true;
+            this.btnComprarCarrinho.Click += new System.EventHandler(this.btnComprarCarrinho_Click);
             // 
             // lvwPedido
             // 
@@ -332,7 +333,7 @@ namespace LojaDinossauro
             this.grpFiltrosDinossauros.Size = new System.Drawing.Size(241, 159);
             this.grpFiltrosDinossauros.TabIndex = 21;
             this.grpFiltrosDinossauros.TabStop = false;
-            this.grpFiltrosDinossauros.Text = "Filtros";
+            this.grpFiltrosDinossauros.Text = "Filtro Dinossauros";
             // 
             // chkVoador
             // 
@@ -374,7 +375,7 @@ namespace LojaDinossauro
             this.grpFiltrosBrinquedos.Size = new System.Drawing.Size(241, 159);
             this.grpFiltrosBrinquedos.TabIndex = 19;
             this.grpFiltrosBrinquedos.TabStop = false;
-            this.grpFiltrosBrinquedos.Text = "Brinquedos";
+            this.grpFiltrosBrinquedos.Text = "Filtro Brinquedos";
             this.grpFiltrosBrinquedos.Visible = false;
             // 
             // Form1

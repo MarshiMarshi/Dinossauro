@@ -15,6 +15,33 @@ namespace LojaDinossauro
         public frmTermos()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void btnAceitar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+
+            FormCollection frmList = Application.OpenForms;
+
+            foreach (Form frm in frmList)
+            {
+                if (frm.Text == "Form1")
+                    frm.Show();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+
+            FormCollection frmList = Application.OpenForms;
+
+            foreach (Form frm in frmList)
+            {
+                if (frm.Text == "Form1")
+                    frm.Show();
+            }
         }
     }
 }

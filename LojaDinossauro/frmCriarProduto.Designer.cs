@@ -49,10 +49,9 @@ namespace LojaDinossauro
             this.btnProcurarImagem = new System.Windows.Forms.Button();
             this.lblTipoProduto = new System.Windows.Forms.Label();
             this.cmbTipoProduto = new System.Windows.Forms.ComboBox();
-            this.btnCriarBrinquedo = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnCriarDinossauro = new System.Windows.Forms.Button();
+            this.btnCriarProduto = new System.Windows.Forms.Button();
             this.pnlSenha.SuspendLayout();
             this.pnlCriarProduto.SuspendLayout();
             this.pnlText.SuspendLayout();
@@ -107,10 +106,9 @@ namespace LojaDinossauro
             this.pnlCriarProduto.Controls.Add(this.btnProcurarImagem);
             this.pnlCriarProduto.Controls.Add(this.lblTipoProduto);
             this.pnlCriarProduto.Controls.Add(this.cmbTipoProduto);
-            this.pnlCriarProduto.Controls.Add(this.btnCriarBrinquedo);
             this.pnlCriarProduto.Controls.Add(this.btnVoltar);
             this.pnlCriarProduto.Controls.Add(this.btnLimpar);
-            this.pnlCriarProduto.Controls.Add(this.btnCriarDinossauro);
+            this.pnlCriarProduto.Controls.Add(this.btnCriarProduto);
             this.pnlCriarProduto.Location = new System.Drawing.Point(93, 183);
             this.pnlCriarProduto.Name = "pnlCriarProduto";
             this.pnlCriarProduto.Size = new System.Drawing.Size(485, 368);
@@ -255,17 +253,6 @@ namespace LojaDinossauro
             this.cmbTipoProduto.Size = new System.Drawing.Size(144, 21);
             this.cmbTipoProduto.TabIndex = 12;
             // 
-            // btnCriarBrinquedo
-            // 
-            this.btnCriarBrinquedo.Location = new System.Drawing.Point(147, 305);
-            this.btnCriarBrinquedo.Name = "btnCriarBrinquedo";
-            this.btnCriarBrinquedo.Size = new System.Drawing.Size(75, 23);
-            this.btnCriarBrinquedo.TabIndex = 11;
-            this.btnCriarBrinquedo.Text = "Salvar";
-            this.btnCriarBrinquedo.UseVisualStyleBackColor = true;
-            this.btnCriarBrinquedo.Visible = false;
-            this.btnCriarBrinquedo.Click += new System.EventHandler(this.btnCriarBrinquedo_Click);
-            // 
             // btnVoltar
             // 
             this.btnVoltar.Location = new System.Drawing.Point(309, 305);
@@ -286,15 +273,15 @@ namespace LojaDinossauro
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // btnCriarDinossauro
+            // btnCriarProduto
             // 
-            this.btnCriarDinossauro.Location = new System.Drawing.Point(390, 305);
-            this.btnCriarDinossauro.Name = "btnCriarDinossauro";
-            this.btnCriarDinossauro.Size = new System.Drawing.Size(75, 23);
-            this.btnCriarDinossauro.TabIndex = 6;
-            this.btnCriarDinossauro.Text = "Salvar";
-            this.btnCriarDinossauro.UseVisualStyleBackColor = true;
-            this.btnCriarDinossauro.Click += new System.EventHandler(this.btnCriarDinossauro_Click);
+            this.btnCriarProduto.Location = new System.Drawing.Point(390, 305);
+            this.btnCriarProduto.Name = "btnCriarProduto";
+            this.btnCriarProduto.Size = new System.Drawing.Size(75, 23);
+            this.btnCriarProduto.TabIndex = 6;
+            this.btnCriarProduto.Text = "Salvar";
+            this.btnCriarProduto.UseVisualStyleBackColor = true;
+            this.btnCriarProduto.Click += new System.EventHandler(this.btnCriarProduto_Click);
             // 
             // frmCriarProduto
             // 
@@ -329,10 +316,9 @@ namespace LojaDinossauro
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnCriarDinossauro;
+        private System.Windows.Forms.Button btnCriarProduto;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Button btnCriarBrinquedo;
         private System.Windows.Forms.ComboBox cmbTipoProduto;
         private System.Windows.Forms.Label lblTipoProduto;
         private System.Windows.Forms.Button btnProcurarImagem;

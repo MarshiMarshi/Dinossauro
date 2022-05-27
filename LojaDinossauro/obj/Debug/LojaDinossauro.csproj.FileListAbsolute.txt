@@ -10,3 +10,4 @@ C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debu
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.frmCriarProduto.resources
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.csproj.AssemblyReference.cache
 C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.frmInfoProduto.resources
+C:\Users\Marsh\Documents\Programação\VS\LojaDinossauro\LojaDinossauro\obj\Debug\LojaDinossauro.frmTermos.resources

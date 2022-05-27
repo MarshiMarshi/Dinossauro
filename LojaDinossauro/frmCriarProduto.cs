@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace LojaDinossauro
 {
@@ -32,10 +31,9 @@ namespace LojaDinossauro
             }
             else
             {
+                lblDescricao.Enabled = false;
+                txtDescricao.Enabled = false;
                 lblTipoProduto.Text = lblTipoProduto.Text.Replace("Dinossauro", "Brinquedo");
-                btnCriarBrinquedo.Location = btnCriarDinossauro.Location;
-                btnCriarDinossauro.Hide();
-                btnCriarBrinquedo.Show();
 
                 foreach (var tipo in Enum.GetValues(typeof(TipoBrinquedoEnum)))
                     cmbTipoProduto.Items.Add(tipo);
@@ -72,7 +70,7 @@ namespace LojaDinossauro
                 foreach (var imageExtension in typeof(ImageFormat).GetProperties())
                     if (string.Equals(openImage.SafeFileName.Substring(openImage.SafeFileName.LastIndexOf(".")).Remove(0, 1), imageExtension.Name, StringComparison.OrdinalIgnoreCase))
                         locked = true;
-                        
+
                 if (locked || string.Equals(openImage.SafeFileName.Substring(openImage.SafeFileName.LastIndexOf(".")).Remove(0, 1), "jpg", StringComparison.OrdinalIgnoreCase))
                 {
                     if (!File.Exists(Path.Combine(pathResources, openImage.SafeFileName)))
@@ -87,14 +85,14 @@ namespace LojaDinossauro
             }
         }
 
-        private void btnCriarDinossauro_Click(object sender, EventArgs e)
+        private void btnCriarProduto_Click(object sender, EventArgs e)
         {
             try
             {
                 foreach (Control ctrl in pnlText.Controls)
                 {
                     if (ctrl.GetType() == typeof(TextBox))
-                        if (string.IsNullOrWhiteSpace(ctrl.Text))
+                        if (string.IsNullOrWhiteSpace(ctrl.Text) && ctrl.Enabled != false)
                             throw new ArgumentNullException();
 
                 }
@@ -107,50 +105,6 @@ namespace LojaDinossauro
                     throw new ArgumentNullException();
 
                 else if (picProduto.Image == null)
-                    throw new ArgumentNullException();
-
-
-                Produto produto = new Produto();
-
-                produto.cod = Global.produtos.Count + 1;
-                produto.nome = txtNome.Text;
-                produto.preco = double.Parse(txtPreco.Text.Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture);
-                produto.descricao = txtDescricao.Text;
-                produto.tipo.AddRange(lstTipoProduto.Items.Cast<Enum>());
-                produto.img = picProduto.Image;
-
-                Global.produtos.Add(produto);
-            }
-            catch (ArgumentNullException)
-            {
-                MessageBox.Show("Erro au tentar criar produto. \nAlgum dos itens acima estão em branco!", "Objeto em Nulo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (TypeAccessException)
-            {
-                MessageBox.Show("O campo Preço deve ser números!", "Tipo incorreto no campo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnCriarBrinquedo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                foreach (Control ctrl in pnlText.Controls)
-                {
-                    if (ctrl.GetType() == typeof(TextBox))
-                        if (string.IsNullOrWhiteSpace(ctrl.Text))
-                            throw new ArgumentNullException();
-
-                }
-
-                if (!double.TryParse(txtPreco.Text, out double precoParse))
-                    if (!double.TryParse(txtPreco.Text.Replace(',', '.'), out precoParse))
-                        throw new TypeAccessException();
-
-                if (lstTipoProduto.Items.Count == 0)
-                    throw new ArgumentNullException();
-
-                if (picProduto.Image == null)
                     throw new ArgumentNullException();
 
 

@@ -22,95 +22,119 @@ namespace LojaDinossauro
             lvwPedido.Columns[1].Width = -2;
         }
 
-        // TODO: Mudar entrada no form1
         private void Form1_Activated(object sender, EventArgs e)
         {
             if (Global.produtos.Count > 0)
             {
-                height = 64;
-
-                foreach (Control ctrl in tpDinossauros.Controls)
-                    if (ctrl.Name != "btnCriarDinossauro")
-                        ctrl.Dispose();
-                tpDinossauros.Refresh();
-
-                foreach (Control ctrl in tpBrinquedos.Controls)
-                    if (ctrl.Name != "btnCriarBrinquedo")
-                        ctrl.Dispose();
-                tpBrinquedos.Refresh();
-
-                foreach (Produto prod in Global.produtos)
-                {
-                    if (prod.tipo.First<Enum>().GetType() == typeof(TipoDinossauroEnum))
-                        addControl(prod, true);
-                    else
-                        addControl(prod, false);
-                }
+                addControl(tpDinossauros, 64);
+                addControl(tpBrinquedos, 64);
             }
         }
 
-        private int height = 64;
         // TODO: Melhorar metodo addControl
-        private void addControl(Produto prod, bool tipoProduto)
+        private void addControl(TabPage tp, int height, Produto produto = default)
         {
-            Button btnComprar = new Button();
-            Button btnInfo = new Button();
-            Label lblNome = new Label();
-            Label lblPreco = new Label();
-
-            lblNome.Text = prod.nome;
-            lblNome.AutoSize = true;
-            lblNome.TabIndex = int.Parse(prod.cod.ToString());
-
-            lblPreco.Text = prod.preco.ToString();
-            lblPreco.AutoSize = true;
-            lblPreco.TabIndex = int.Parse(prod.cod.ToString());
-
-            btnComprar.Text = "Comprar";
-            btnComprar.TabIndex = int.Parse(prod.cod.ToString());
-            btnComprar.Size = new Size(75, 23);
-            
-
-            if (tipoProduto)
+            if (produto == default)
             {
-                if (tpDinossauros.AutoScroll)
-                    tpDinossauros.AutoScrollMargin = new Size(0, 10);
+                foreach (Control ctrl in tp.Controls)
+                    if (!ctrl.Name.Contains("btnCriar"))
+                        ctrl.Dispose();
+                tp.Refresh();
 
-                lblNome.Location = new Point(57, tpDinossauros.AutoScrollPosition.Y + height);
-                tpDinossauros.Controls.Add(lblNome);
+                foreach (Produto prod in Global.produtos)
+                {
+                    Button btnComprar = new Button();
+                    Label lblNome = new Label();
+                    Label lblPreco = new Label();
 
-                
-                lblPreco.Location = new Point(253, tpDinossauros.AutoScrollPosition.Y + height);
-                tpDinossauros.Controls.Add(lblPreco);
+                    lblNome.Text = prod.nome;
+                    lblNome.AutoSize = true;
+                    lblNome.TabIndex = int.Parse(prod.cod.ToString());
 
-                btnComprar.Location = new Point(342, tpDinossauros.AutoScrollPosition.Y + height - 5);
-                tpDinossauros.Controls.Add(btnComprar);
+                    lblPreco.Text = prod.preco.ToString();
+                    lblPreco.AutoSize = true;
+                    lblPreco.TabIndex = int.Parse(prod.cod.ToString());
 
-                btnInfo.Text = "Info";
-                btnInfo.TabIndex = int.Parse(prod.cod.ToString());
-                btnInfo.Size = new Size(75, 23);
-                btnInfo.Location = new Point(423, tpDinossauros.AutoScrollPosition.Y + height - 5);
-                tpDinossauros.Controls.Add(btnInfo);
+                    btnComprar.Text = "Comprar";
+                    btnComprar.TabIndex = int.Parse(prod.cod.ToString());
+                    btnComprar.Size = new Size(75, 23);
+
+                    if (tp.AutoScroll)
+                        tp.AutoScrollMargin = new Size(0, 10);
+
+                    lblNome.Location = new Point(57, tp.AutoScrollPosition.Y + height);
+                    tp.Controls.Add(lblNome);
+
+
+                    lblPreco.Location = new Point(253, tp.AutoScrollPosition.Y + height);
+                    tp.Controls.Add(lblPreco);
+
+                    btnComprar.Location = new Point(342, tp.AutoScrollPosition.Y + height - 5);
+                    tp.Controls.Add(btnComprar);
+
+                    if (prod.descricao != null)
+                    {
+                        Button btnInfo = new Button();
+
+                        btnInfo.Text = "Info";
+                        btnInfo.TabIndex = int.Parse(prod.cod.ToString());
+                        btnInfo.Size = new Size(75, 23);
+                        btnInfo.Location = new Point(423, tp.AutoScrollPosition.Y + height - 5);
+                        tp.Controls.Add(btnInfo);
+
+                        btnInfo.Click += new EventHandler(btnInfo_Click);
+                    }
+
+                    height += 44;
+                    btnComprar.Click += new EventHandler(btnComprar_Click);
+                }
             }
             else
             {
-                if (tpBrinquedos.AutoScroll)
-                    tpBrinquedos.AutoScrollMargin = new Size(0, 10);
+                Button btnComprar = new Button();
+                Label lblNome = new Label();
+                Label lblPreco = new Label();
 
-                lblNome.Location = new Point(57, tpBrinquedos.AutoScrollPosition.Y + height);
-                tpBrinquedos.Controls.Add(lblNome);
+                lblNome.Text = produto.nome;
+                lblNome.AutoSize = true;
+                lblNome.TabIndex = int.Parse(produto.cod.ToString());
+
+                lblPreco.Text = produto.preco.ToString();
+                lblPreco.AutoSize = true;
+                lblPreco.TabIndex = int.Parse(produto.cod.ToString());
+
+                btnComprar.Text = "Comprar";
+                btnComprar.TabIndex = int.Parse(produto.cod.ToString());
+                btnComprar.Size = new Size(75, 23);
+
+                if (tp.AutoScroll)
+                    tp.AutoScrollMargin = new Size(0, 10);
+
+                lblNome.Location = new Point(57, tp.AutoScrollPosition.Y + height);
+                tp.Controls.Add(lblNome);
 
 
-                lblPreco.Location = new Point(253, tpBrinquedos.AutoScrollPosition.Y + height);
-                tpBrinquedos.Controls.Add(lblPreco);
+                lblPreco.Location = new Point(253, tp.AutoScrollPosition.Y + height);
+                tp.Controls.Add(lblPreco);
 
-                btnComprar.Location = new Point(342, tpBrinquedos.AutoScrollPosition.Y + height - 5);
-                tpBrinquedos.Controls.Add(btnComprar);
+                btnComprar.Location = new Point(342, tp.AutoScrollPosition.Y + height - 5);
+                tp.Controls.Add(btnComprar);
+
+                if (produto.descricao != null)
+                {
+                    Button btnInfo = new Button();
+
+                    btnInfo.Text = "Info";
+                    btnInfo.TabIndex = int.Parse(produto.cod.ToString());
+                    btnInfo.Size = new Size(75, 23);
+                    btnInfo.Location = new Point(423, tp.AutoScrollPosition.Y + height - 5);
+                    tp.Controls.Add(btnInfo);
+
+                    btnInfo.Click += new EventHandler(btnInfo_Click);
+                }
+
+                btnComprar.Click += new EventHandler(btnComprar_Click);
             }
-            
-            height += 44;
-            btnComprar.Click += new EventHandler(btnComprar_Click);
-            btnInfo.Click += new EventHandler(btnInfo_Click);
         }
 
         private void btnComprar_Click(object sender, EventArgs e)
@@ -141,6 +165,16 @@ namespace LojaDinossauro
         {
             frmCriarProduto frm = new frmCriarProduto(false);
             frm.ShowDialog();
+        }
+
+        private void btnComprarCarrinho_Click(object sender, EventArgs e)
+        {
+            frmTermos termos = new frmTermos();
+
+            if (termos.ShowDialog() == DialogResult.Yes)
+                MessageBox.Show("Termos aceitos");
+            else
+                MessageBox.Show("Termos Rejeitados");
         }
 
         #region Eventos CheckedChanged
@@ -181,42 +215,11 @@ namespace LojaDinossauro
         }
         #endregion
 
-
         // TODO: Refazer filtros
-        private void filtros(bool tipoProduto)
+        private void filtros(TabPage tp, int height, Enum tipoProduto)
         {
-            height = 64;
 
-            if (tipoProduto)
-            {
-                for (int i = tpDinossauros.Controls.Count - 1; i >= 0; i--)
-                    if (tpDinossauros.Controls[i].Text != "Criar")
-                        tpDinossauros.Controls[i].Dispose();
-                /*foreach (Control ctrl in tpDinossauros.Controls)
-                    if (ctrl.Name != "btnCriarDinossauro")
-                        ctrl.Dispose();*/
-
-                foreach (CheckBox chk in grpFiltrosDinossauros.Controls)
-                {
-                    if (chk.Checked)
-                    {
-                        foreach (Produto prod in Global.produtos)
-                        {
-                            foreach (var tipo in prod.tipo)
-                                if (chk.Text == tipo.ToString() && tpDinossauros.Controls[int.Parse(prod.cod.ToString())].TabIndex != prod.cod)
-                                    addControl(prod, tipoProduto);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (Control ctrl in tpDinossauros.Controls)
-                    if (ctrl.Name != "btnCriarDinossauro")
-                        ctrl.Dispose();
-
-                
-            }
+            height += 44;
         }
     }
 }
