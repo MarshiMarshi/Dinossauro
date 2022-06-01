@@ -36,10 +36,6 @@ namespace LojaDinossauro
             this.chkQuadrupede = new System.Windows.Forms.CheckBox();
             this.tabLoja = new System.Windows.Forms.TabControl();
             this.tpDinossauros = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tpBrinquedos = new System.Windows.Forms.TabPage();
             this.btnCriarBrinquedo = new System.Windows.Forms.Button();
             this.tpCarrinho = new System.Windows.Forms.TabPage();
@@ -58,11 +54,26 @@ namespace LojaDinossauro
             this.chkAquatico = new System.Windows.Forms.CheckBox();
             this.chkEspinhos = new System.Windows.Forms.CheckBox();
             this.grpFiltrosBrinquedos = new System.Windows.Forms.GroupBox();
+            this.grpFiltros = new System.Windows.Forms.GroupBox();
+            this.btnAplicarFiltro = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabLoja.SuspendLayout();
             this.tpDinossauros.SuspendLayout();
             this.tpBrinquedos.SuspendLayout();
             this.tpCarrinho.SuspendLayout();
             this.grpFiltrosDinossauros.SuspendLayout();
+            this.grpFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCriarDinossauro
@@ -78,7 +89,7 @@ namespace LojaDinossauro
             // chkCarnivoro
             // 
             this.chkCarnivoro.AutoSize = true;
-            this.chkCarnivoro.Location = new System.Drawing.Point(27, 36);
+            this.chkCarnivoro.Location = new System.Drawing.Point(24, 26);
             this.chkCarnivoro.Name = "chkCarnivoro";
             this.chkCarnivoro.Size = new System.Drawing.Size(71, 17);
             this.chkCarnivoro.TabIndex = 11;
@@ -89,7 +100,7 @@ namespace LojaDinossauro
             // chkHerbivoro
             // 
             this.chkHerbivoro.AutoSize = true;
-            this.chkHerbivoro.Location = new System.Drawing.Point(27, 59);
+            this.chkHerbivoro.Location = new System.Drawing.Point(24, 49);
             this.chkHerbivoro.Name = "chkHerbivoro";
             this.chkHerbivoro.Size = new System.Drawing.Size(72, 17);
             this.chkHerbivoro.TabIndex = 12;
@@ -100,7 +111,7 @@ namespace LojaDinossauro
             // chkBipede
             // 
             this.chkBipede.AutoSize = true;
-            this.chkBipede.Location = new System.Drawing.Point(27, 82);
+            this.chkBipede.Location = new System.Drawing.Point(24, 72);
             this.chkBipede.Name = "chkBipede";
             this.chkBipede.Size = new System.Drawing.Size(59, 17);
             this.chkBipede.TabIndex = 13;
@@ -110,7 +121,7 @@ namespace LojaDinossauro
             // chkQuadrupede
             // 
             this.chkQuadrupede.AutoSize = true;
-            this.chkQuadrupede.Location = new System.Drawing.Point(27, 105);
+            this.chkQuadrupede.Location = new System.Drawing.Point(24, 95);
             this.chkQuadrupede.Name = "chkQuadrupede";
             this.chkQuadrupede.Size = new System.Drawing.Size(85, 17);
             this.chkQuadrupede.TabIndex = 14;
@@ -123,68 +134,33 @@ namespace LojaDinossauro
             this.tabLoja.Controls.Add(this.tpDinossauros);
             this.tabLoja.Controls.Add(this.tpBrinquedos);
             this.tabLoja.Controls.Add(this.tpCarrinho);
-            this.tabLoja.Location = new System.Drawing.Point(259, 25);
+            this.tabLoja.Location = new System.Drawing.Point(259, 12);
             this.tabLoja.Name = "tabLoja";
             this.tabLoja.SelectedIndex = 0;
-            this.tabLoja.Size = new System.Drawing.Size(525, 320);
+            this.tabLoja.Size = new System.Drawing.Size(576, 558);
             this.tabLoja.TabIndex = 0;
             // 
             // tpDinossauros
             // 
             this.tpDinossauros.AutoScroll = true;
-            this.tpDinossauros.Controls.Add(this.label2);
-            this.tpDinossauros.Controls.Add(this.label1);
+            this.tpDinossauros.Controls.Add(this.button3);
+            this.tpDinossauros.Controls.Add(this.button4);
+            this.tpDinossauros.Controls.Add(this.label4);
+            this.tpDinossauros.Controls.Add(this.label3);
+            this.tpDinossauros.Controls.Add(this.pictureBox2);
+            this.tpDinossauros.Controls.Add(this.pictureBox1);
             this.tpDinossauros.Controls.Add(this.button2);
             this.tpDinossauros.Controls.Add(this.button1);
+            this.tpDinossauros.Controls.Add(this.label2);
+            this.tpDinossauros.Controls.Add(this.label1);
             this.tpDinossauros.Controls.Add(this.btnCriarDinossauro);
             this.tpDinossauros.Location = new System.Drawing.Point(4, 22);
             this.tpDinossauros.Name = "tpDinossauros";
             this.tpDinossauros.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDinossauros.Size = new System.Drawing.Size(517, 294);
+            this.tpDinossauros.Size = new System.Drawing.Size(568, 532);
             this.tpDinossauros.TabIndex = 0;
             this.tpDinossauros.Text = "Dinossauros";
             this.tpDinossauros.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(253, 61);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
-            this.label2.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
-            this.label1.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(342, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(423, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             // 
             // tpBrinquedos
             // 
@@ -193,7 +169,7 @@ namespace LojaDinossauro
             this.tpBrinquedos.Location = new System.Drawing.Point(4, 22);
             this.tpBrinquedos.Name = "tpBrinquedos";
             this.tpBrinquedos.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBrinquedos.Size = new System.Drawing.Size(517, 294);
+            this.tpBrinquedos.Size = new System.Drawing.Size(513, 532);
             this.tpBrinquedos.TabIndex = 1;
             this.tpBrinquedos.Text = "Brinquedos";
             this.tpBrinquedos.UseVisualStyleBackColor = true;
@@ -220,7 +196,7 @@ namespace LojaDinossauro
             this.tpCarrinho.Controls.Add(this.lvwPedido);
             this.tpCarrinho.Location = new System.Drawing.Point(4, 22);
             this.tpCarrinho.Name = "tpCarrinho";
-            this.tpCarrinho.Size = new System.Drawing.Size(517, 294);
+            this.tpCarrinho.Size = new System.Drawing.Size(513, 532);
             this.tpCarrinho.TabIndex = 2;
             this.tpCarrinho.Text = "Carrinho";
             this.tpCarrinho.UseVisualStyleBackColor = true;
@@ -229,7 +205,7 @@ namespace LojaDinossauro
             // 
             this.lblPrecoTotal.AutoSize = true;
             this.lblPrecoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecoTotal.Location = new System.Drawing.Point(15, 30);
+            this.lblPrecoTotal.Location = new System.Drawing.Point(74, 45);
             this.lblPrecoTotal.Name = "lblPrecoTotal";
             this.lblPrecoTotal.Size = new System.Drawing.Size(61, 24);
             this.lblPrecoTotal.TabIndex = 7;
@@ -238,7 +214,7 @@ namespace LojaDinossauro
             // rdoIrmao
             // 
             this.rdoIrmao.AutoSize = true;
-            this.rdoIrmao.Location = new System.Drawing.Point(109, 132);
+            this.rdoIrmao.Location = new System.Drawing.Point(171, 135);
             this.rdoIrmao.Name = "rdoIrmao";
             this.rdoIrmao.Size = new System.Drawing.Size(51, 17);
             this.rdoIrmao.TabIndex = 6;
@@ -249,7 +225,7 @@ namespace LojaDinossauro
             // rdoRins
             // 
             this.rdoRins.AutoSize = true;
-            this.rdoRins.Location = new System.Drawing.Point(18, 132);
+            this.rdoRins.Location = new System.Drawing.Point(80, 135);
             this.rdoRins.Name = "rdoRins";
             this.rdoRins.Size = new System.Drawing.Size(62, 17);
             this.rdoRins.TabIndex = 5;
@@ -260,7 +236,7 @@ namespace LojaDinossauro
             // rdoDebito
             // 
             this.rdoDebito.AutoSize = true;
-            this.rdoDebito.Location = new System.Drawing.Point(109, 108);
+            this.rdoDebito.Location = new System.Drawing.Point(171, 111);
             this.rdoDebito.Name = "rdoDebito";
             this.rdoDebito.Size = new System.Drawing.Size(56, 17);
             this.rdoDebito.TabIndex = 4;
@@ -271,7 +247,7 @@ namespace LojaDinossauro
             // rdoCredito
             // 
             this.rdoCredito.AutoSize = true;
-            this.rdoCredito.Location = new System.Drawing.Point(18, 109);
+            this.rdoCredito.Location = new System.Drawing.Point(80, 112);
             this.rdoCredito.Name = "rdoCredito";
             this.rdoCredito.Size = new System.Drawing.Size(58, 17);
             this.rdoCredito.TabIndex = 3;
@@ -282,7 +258,7 @@ namespace LojaDinossauro
             // lblFormaPagamento
             // 
             this.lblFormaPagamento.AutoSize = true;
-            this.lblFormaPagamento.Location = new System.Drawing.Point(25, 83);
+            this.lblFormaPagamento.Location = new System.Drawing.Point(75, 86);
             this.lblFormaPagamento.Name = "lblFormaPagamento";
             this.lblFormaPagamento.Size = new System.Drawing.Size(160, 13);
             this.lblFormaPagamento.TabIndex = 2;
@@ -290,9 +266,9 @@ namespace LojaDinossauro
             // 
             // btnComprarCarrinho
             // 
-            this.btnComprarCarrinho.Location = new System.Drawing.Point(28, 187);
+            this.btnComprarCarrinho.Location = new System.Drawing.Point(283, 108);
             this.btnComprarCarrinho.Name = "btnComprarCarrinho";
-            this.btnComprarCarrinho.Size = new System.Drawing.Size(161, 23);
+            this.btnComprarCarrinho.Size = new System.Drawing.Size(161, 47);
             this.btnComprarCarrinho.TabIndex = 1;
             this.btnComprarCarrinho.Text = "Comprar";
             this.btnComprarCarrinho.UseVisualStyleBackColor = true;
@@ -304,9 +280,9 @@ namespace LojaDinossauro
             this.chNome,
             this.chPreco});
             this.lvwPedido.HideSelection = false;
-            this.lvwPedido.Location = new System.Drawing.Point(233, 3);
+            this.lvwPedido.Location = new System.Drawing.Point(3, 215);
             this.lvwPedido.Name = "lvwPedido";
-            this.lvwPedido.Size = new System.Drawing.Size(276, 288);
+            this.lvwPedido.Size = new System.Drawing.Size(505, 314);
             this.lvwPedido.TabIndex = 0;
             this.lvwPedido.UseCompatibleStateImageBehavior = false;
             this.lvwPedido.View = System.Windows.Forms.View.Details;
@@ -328,9 +304,9 @@ namespace LojaDinossauro
             this.grpFiltrosDinossauros.Controls.Add(this.chkHerbivoro);
             this.grpFiltrosDinossauros.Controls.Add(this.chkBipede);
             this.grpFiltrosDinossauros.Controls.Add(this.chkQuadrupede);
-            this.grpFiltrosDinossauros.Location = new System.Drawing.Point(12, 25);
+            this.grpFiltrosDinossauros.Location = new System.Drawing.Point(10, 35);
             this.grpFiltrosDinossauros.Name = "grpFiltrosDinossauros";
-            this.grpFiltrosDinossauros.Size = new System.Drawing.Size(241, 159);
+            this.grpFiltrosDinossauros.Size = new System.Drawing.Size(219, 219);
             this.grpFiltrosDinossauros.TabIndex = 21;
             this.grpFiltrosDinossauros.TabStop = false;
             this.grpFiltrosDinossauros.Text = "Filtro Dinossauros";
@@ -338,7 +314,7 @@ namespace LojaDinossauro
             // chkVoador
             // 
             this.chkVoador.AutoSize = true;
-            this.chkVoador.Location = new System.Drawing.Point(133, 82);
+            this.chkVoador.Location = new System.Drawing.Point(130, 72);
             this.chkVoador.Name = "chkVoador";
             this.chkVoador.Size = new System.Drawing.Size(60, 17);
             this.chkVoador.TabIndex = 17;
@@ -349,7 +325,7 @@ namespace LojaDinossauro
             // chkAquatico
             // 
             this.chkAquatico.AutoSize = true;
-            this.chkAquatico.Location = new System.Drawing.Point(133, 59);
+            this.chkAquatico.Location = new System.Drawing.Point(130, 49);
             this.chkAquatico.Name = "chkAquatico";
             this.chkAquatico.Size = new System.Drawing.Size(68, 17);
             this.chkAquatico.TabIndex = 16;
@@ -360,7 +336,7 @@ namespace LojaDinossauro
             // chkEspinhos
             // 
             this.chkEspinhos.AutoSize = true;
-            this.chkEspinhos.Location = new System.Drawing.Point(133, 36);
+            this.chkEspinhos.Location = new System.Drawing.Point(130, 26);
             this.chkEspinhos.Name = "chkEspinhos";
             this.chkEspinhos.Size = new System.Drawing.Size(69, 17);
             this.chkEspinhos.TabIndex = 15;
@@ -370,22 +346,130 @@ namespace LojaDinossauro
             // 
             // grpFiltrosBrinquedos
             // 
-            this.grpFiltrosBrinquedos.Location = new System.Drawing.Point(16, 190);
+            this.grpFiltrosBrinquedos.Location = new System.Drawing.Point(10, 260);
             this.grpFiltrosBrinquedos.Name = "grpFiltrosBrinquedos";
-            this.grpFiltrosBrinquedos.Size = new System.Drawing.Size(241, 159);
+            this.grpFiltrosBrinquedos.Size = new System.Drawing.Size(219, 219);
             this.grpFiltrosBrinquedos.TabIndex = 19;
             this.grpFiltrosBrinquedos.TabStop = false;
             this.grpFiltrosBrinquedos.Text = "Filtro Brinquedos";
             this.grpFiltrosBrinquedos.Visible = false;
             // 
+            // grpFiltros
+            // 
+            this.grpFiltros.Controls.Add(this.btnAplicarFiltro);
+            this.grpFiltros.Controls.Add(this.grpFiltrosDinossauros);
+            this.grpFiltros.Controls.Add(this.grpFiltrosBrinquedos);
+            this.grpFiltros.Location = new System.Drawing.Point(12, 12);
+            this.grpFiltros.Name = "grpFiltros";
+            this.grpFiltros.Size = new System.Drawing.Size(241, 558);
+            this.grpFiltros.TabIndex = 22;
+            this.grpFiltros.TabStop = false;
+            this.grpFiltros.Text = "Filtros";
+            // 
+            // btnAplicarFiltro
+            // 
+            this.btnAplicarFiltro.Location = new System.Drawing.Point(10, 500);
+            this.btnAplicarFiltro.Name = "btnAplicarFiltro";
+            this.btnAplicarFiltro.Size = new System.Drawing.Size(219, 38);
+            this.btnAplicarFiltro.TabIndex = 22;
+            this.btnAplicarFiltro.Text = "Aplicar Filtros";
+            this.btnAplicarFiltro.UseVisualStyleBackColor = true;
+            this.btnAplicarFiltro.Click += new System.EventHandler(this.btnAplicarFiltro_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(110, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(282, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(371, 80);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(452, 80);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(42, 64);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(42, 134);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(110, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "label3";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(452, 150);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(371, 150);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(282, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "label4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(796, 357);
-            this.Controls.Add(this.grpFiltrosBrinquedos);
-            this.Controls.Add(this.grpFiltrosDinossauros);
+            this.ClientSize = new System.Drawing.Size(847, 580);
+            this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.tabLoja);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -398,6 +482,9 @@ namespace LojaDinossauro
             this.tpCarrinho.PerformLayout();
             this.grpFiltrosDinossauros.ResumeLayout(false);
             this.grpFiltrosDinossauros.PerformLayout();
+            this.grpFiltros.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -419,10 +506,6 @@ namespace LojaDinossauro
         private System.Windows.Forms.CheckBox chkVoador;
         private System.Windows.Forms.CheckBox chkAquatico;
         private System.Windows.Forms.ListView lvwPedido;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblPrecoTotal;
         private System.Windows.Forms.RadioButton rdoIrmao;
         private System.Windows.Forms.RadioButton rdoRins;
@@ -432,6 +515,18 @@ namespace LojaDinossauro
         private System.Windows.Forms.Button btnComprarCarrinho;
         private System.Windows.Forms.ColumnHeader chNome;
         private System.Windows.Forms.ColumnHeader chPreco;
+        private System.Windows.Forms.GroupBox grpFiltros;
+        private System.Windows.Forms.Button btnAplicarFiltro;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

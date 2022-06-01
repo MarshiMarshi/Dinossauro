@@ -36,17 +36,18 @@ namespace LojaDinossauro
             // 
             // lblTermos
             // 
-            this.lblTermos.AutoSize = true;
-            this.lblTermos.Location = new System.Drawing.Point(163, 57);
+            this.lblTermos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTermos.Location = new System.Drawing.Point(30, 28);
             this.lblTermos.Name = "lblTermos";
-            this.lblTermos.Size = new System.Drawing.Size(35, 13);
+            this.lblTermos.Size = new System.Drawing.Size(245, 79);
             this.lblTermos.TabIndex = 0;
-            this.lblTermos.Text = "label1";
+            this.lblTermos.Text = "Não nos responsabilizamos por mortes ou perdas de membros dos nossos clientes, es" +
+    "teja ciente disso.\r\n\r\nAceita os Termos?\r\n";
             // 
             // btnAceitar
             // 
             this.btnAceitar.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnAceitar.Location = new System.Drawing.Point(206, 171);
+            this.btnAceitar.Location = new System.Drawing.Point(63, 128);
             this.btnAceitar.Name = "btnAceitar";
             this.btnAceitar.Size = new System.Drawing.Size(75, 23);
             this.btnAceitar.TabIndex = 1;
@@ -57,7 +58,7 @@ namespace LojaDinossauro
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(319, 171);
+            this.btnCancelar.Location = new System.Drawing.Point(144, 128);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 2;
@@ -71,7 +72,7 @@ namespace LojaDinossauro
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(533, 272);
+            this.ClientSize = new System.Drawing.Size(308, 191);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceitar);
             this.Controls.Add(this.lblTermos);
@@ -79,7 +80,6 @@ namespace LojaDinossauro
             this.Name = "frmTermos";
             this.Text = "frmTermos";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
